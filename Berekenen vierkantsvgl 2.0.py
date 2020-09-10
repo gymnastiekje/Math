@@ -1,30 +1,24 @@
+import bcolors
 
-import math
-import cmath
-import fractions
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+
+print(bcolors.WARNING +"Interest calculator"+ bcolors.ENDC)
+
+#Multiply money_start with 100 -> integers are exact, floats aren't because of the way the computer saves it. 
+money_start = int(float(input(bcolors.FAIL+"With how many money will you start?"+bcolors.ENDC))*100)
+interest = float(input(bcolors.FAIL+"What is the yearly interest?(in %)"+bcolors.ENDC))
+nYears = int(input(bcolors.FAIL+"How many years will you save the money?"+bcolors.ENDC))
+
+#devide money_end by 100 -> money is back in euros.
+money_end = (money_start*(1+(interest/100))**nYears)/100
+
+print(bcolors.OKGREEN + "After", nYears, " year(s) you'll have €", round(money_end,2), bcolors.ENDC)
 
 
-print("To solve ax2+bx+c=0")
-
-a = int(float(input("Enter the value of a:")))
-b = int(float(input("Enter the value of b:")))
-c = int(float(input("Enter the value of c:")))
-
-D = b**2-4.*a*c
-if D<0:
-   teller_real = -b 
-   noemer = 2.*a
-
-   teller_imag = math.sqrt(-D)
-
-   print("x1=", fractions.Fraction(teller_real/noemer), "+", teller_imag,"i /", noemer)
-   print("x2=", fractions.Fraction(teller_real/noemer), "-", teller_imag,"i /", noemer)
-   
-else:
-    x1 = (-b - math.sqrt(D))/(2.*a)
-    x2 = (-b + math.sqrt(D))/(2.*a)
-    print("x1=", x1)
-    print("x2=", x2)
-
-a = input("Press button to quit")
-
+close = input(bcolors.OKBLUE+"Press enter to quit"+bcolors.ENDC)
