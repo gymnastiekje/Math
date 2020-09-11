@@ -24,6 +24,7 @@ class text:
     LIGHTBLUE='\033[94m'
     PINK='\033[95m'
     LIGHTCYAN='\033[96m'
+    BROWN= '\033[36m'
 class background:    
     BLACK='\033[40m'
     RED='\033[41m'
@@ -67,28 +68,34 @@ def who_wins():
     return(winnaar, speler, computer) #Zorgen dat de if/elif statemets in de loop staan
 #geen [] bij return als dat niet ndg is. [] duid een lijst aan; () of niets een tupel. 
 #lijst = kan aangepast worden; tupel = kan niet aangepast worden
-#
+
 
 #emojis["papier"] geeft \U...
 emojis ={ "Schaar": "\U0001F596",
          "Steen": "\U0001F44A",
          "Papier": "\U0001F91A"}
 
-figuur ={"Kakje":"\U0001F4A9",
+avatar ={"Kakje":"\U0001F4A9",
           "Raket":"\U0001F680",
           "Smiley":"\U0001F600"}
+cavatar ={"Kakje":"text.",
+          "Raket":"text.BLUE",
+          "Smiley":"text.YELLOW"}
+avatar_keuze = ["Kakje", "Raket", "Smiley"]
+
 
 print("Welkom bij schaar, steen, papier tegen de \U0001F63A \n"
       "Je kan je figuur kiezen uit:(Hoofdlettergevoelig): \n"
       " \U0001F4A9 Kakje \n"
       " \U0001F680 Raket \n"
       " \U0001F600 Smiley")
-avatars = []
+avatar_speler = input("Maak uw keuze:")
+if (avatar_speler not in avatar_keuze):
+    avatar_speler = input("Dit is geen optie lolbroek.")
+    
 
 
-
-
-print("Nu kunnen we beginnen.\,"
+print("Nu kunnen we beginnen.\n"
       "Je kan kiezen tussen: (Hoofdlettergevoelig): \n"
       "\U0001F596 Schaar\n"
       "\U0001F44A Steen\n"
@@ -98,7 +105,7 @@ print("Nu kunnen we beginnen.\,"
 score_speler = 0
 score_computer = 0
 
-while(2):#while(x) herhaalt enkel als uw x niet gelijk is aan 0
+while(1):#while(x) herhaalt enkel als uw x niet gelijk is aan 0
     winnaar, speler, computer = who_wins() #volgorde is belangrijk! Hier heb je who_wins() die [winnaar, speler, computer] bevat. 
     if winnaar == 1:                       #Daarna stel ik dat winnaar=winnnaar, speler=speler, computer=computer; als volgorde verschillend is stel ik bv. computer=speler
         print(emojis[speler],"verliest tegen", emojis[computer])
@@ -107,15 +114,13 @@ while(2):#while(x) herhaalt enkel als uw x niet gelijk is aan 0
         print(emojis[speler], "wint tegen", emojis[computer])
         score_speler += 1
     if score_computer<score_speler:
-        print("\U0001F680", text.GREEN, score_speler, bcolors.ENDC,"-", text.RED,score_computer, bcolors.ENDC, "\U0001F63A")
+        print(avatar[avatar_speler], text.GREEN, score_speler, bcolors.ENDC,"-", text.RED,score_computer, bcolors.ENDC,"\U0001F63A")
     elif score_computer>score_speler:
-        print("\U0001F680", text.RED, score_speler, bcolors.ENDC,"-", text.GREEN, score_computer, bcolors.ENDC, "\U0001F63A" )
+        print(avatar[avatar_speler], text.RED, score_speler, bcolors.ENDC,"-", text.GREEN, score_computer, bcolors.ENDC, "\U0001F63A" )
     else:
-        print("\U0001F680", text.PURPLE, score_speler, bcolors.ENDC,"-", text.PURPLE, score_computer, bcolors.ENDC, "\U0001F63A")
+        print(avatar[avatar_speler], text.PURPLE, score_speler, bcolors.ENDC,"-", text.PURPLE, score_computer, bcolors.ENDC, "\U0001F63A")
     a=input("Press 1 to quit, Enter to continue")
-    if a==1:
-        break
-   
+    
 
     
 
