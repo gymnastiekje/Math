@@ -1,2 +1,2 @@
-# Math
-Wiskundige oplossingen
+#Math
+Wiskundige programma's
