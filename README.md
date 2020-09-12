@@ -1,2 +1,5 @@
 #Math
-Wiskundige programma's
+
+Wiskundige programma's.
+Taal:Python
+
