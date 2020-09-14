@@ -4,7 +4,7 @@ import cmath
 import fractions
 
 
-print("To solve ax2+bx+c=0")
+print("To solve ax²+bx+c=0")
 
 a = int(float(input("Enter the value of a:")))
 b = int(float(input("Enter the value of b:")))
