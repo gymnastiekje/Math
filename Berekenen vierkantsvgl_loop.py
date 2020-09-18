@@ -28,13 +28,34 @@ def teller_noemer(a,b,c): #Ik zorg hier voor dat a, b en c de input van deze fun
        
    return x1, x2
 
+keuze_ec=["e", "c"]
+def prompt_continue():
+    print("What to do next?\n"
+          "<c(ontinue)?>\n"
+          "<e(xit)?>\n")
+    check=input()
+    if check == "e":
+        return False
+    elif check == "c":
+        return True
+    while(check not in keuze_ec):
+        check = input("Dit was geen keuze lolbroek!:")
+        if check == "e":
+            return False
+        elif check == "c":
+            return True
 
 #De inputs voor de functie moeten in de while
 #Anders geef je de input 1x in, en slaat de while alleen op de print.
+
+
 while(1):
     a = set_variable("a")
     b = set_variable("b")
     c = set_variable("c")
-    x1,x2=teller_noemer(a,b,c)
+    x1,x2=teller_noemer(a,b,c) #Ik zorg ervoor dat de output van de functie x1, x2 wordt
     print("x1 = ", x1, " en x2 = ", x2)
-
+    if prompt_continue()==True: #True moet niet aangezien if al checkt of het true is
+        continue
+    else:
+        break
